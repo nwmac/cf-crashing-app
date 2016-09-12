@@ -3,8 +3,6 @@
 # We have created a delivery pipeline
 applications:
 # We have reserved a name/route for your app
-- name: nwm-test3
-  host: nwm-test3
-    domain: cf.helion.space
-      # We have provisioned and bound services
-        services:
+- name: irfan
+  host: irfan
+  domain: cf.helion.space
