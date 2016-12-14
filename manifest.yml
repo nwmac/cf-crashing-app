@@ -3,6 +3,6 @@
 # We have created a delivery pipeline
 applications:
 # We have reserved a name/route for your app
-- name: irfan
-  host: irfan
-  domain: cf.helion.space
+- name: NeilTest2
+  host: NeilTest2
+  domain: hcf.hsc.stacktest.io
