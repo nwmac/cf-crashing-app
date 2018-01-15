@@ -4,14 +4,14 @@ var os = require('os');
 var index = parseInt(process.env.INSTANCE_INDEX);
 
 var mem = [];
+var disk = 0;
 
 log('APP INDEX: ' + index);
 
 var freeMemory = Math.round(os.freemem() / 1024 / 1024);
 log('Free Memory: ' + freeMemory + ' MB');
 
-var maxBlocks = freeMemory * 2;
-log('Max Blocks: ' + maxBlocks);
+var maxBlocks = 100;
 
 schedule();
 
@@ -30,6 +30,9 @@ function doTask() {
     case 1:
       allocateMemory();
       break;
+    case 2:
+      allocateDisk();
+      break;
     default:
       log('Looping....')
       break;
@@ -38,6 +41,8 @@ function doTask() {
 }
 
 function allocateMemory() {
+  var maxBlocks = freeMemory;
+  log('Max Blocks: ' + maxBlocks);
   log("Allocating memory.....");
   // 0.5MB
   // Each element in teh array is 8 bytes
@@ -49,8 +54,10 @@ function allocateMemory() {
     mem = [];
     log('Freeing allocated memory');
   }
+}
 
-  // var freeMemory = Math.round(os.freemem() / 1024 / 1024);
-  // log('Free Memory: ' + freeMemory);
-    
+function allocateDisk() {
+  log("Allocating disk.....");
+  fs.writeFile('file_' + disk, new Buffer(1024*1024));
+  disk++;
 }
