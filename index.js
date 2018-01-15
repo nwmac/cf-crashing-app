@@ -1,4 +1,5 @@
 var os = require('os');
+var fs = require('fs');
 
 // Cloud Foundry App Instande Index
 var index = parseInt(process.env.INSTANCE_INDEX);
