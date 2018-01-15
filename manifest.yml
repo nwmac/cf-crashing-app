@@ -4,7 +4,7 @@
 applications:
 # We have reserved a name/route for your app
 - name: NwmTestApp
-  memory: 512MB
+  memory: 256MB
   disk: 64MB
   no-route: true
   health-check-type: process
