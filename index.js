@@ -19,6 +19,8 @@ function log(msg) {
 
 function doTask() {
 
+  log('DO TASK');
+
   // Task depends on which index we are
   switch(index) {
     case 1:
@@ -30,8 +32,8 @@ function doTask() {
   }
 
   function allocateMemory() {
-    // 0.5Mb
-    var block = new Buffer(512*1025*1024);
+    // 0.5MB
+    var block = new Buffer(512*1024*1024);
     mem.push(block);
     log("Allocated " + (mem.length * 0.5) + " MB");
 
