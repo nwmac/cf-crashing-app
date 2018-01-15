@@ -46,8 +46,8 @@ function allocateMemory() {
   log('Max Blocks: ' + maxBlocks);
   log("Allocating memory.....");
   // 0.5MB
-  // Each element in teh array is 8 bytes
-  var block = new Array(1024 * 1024);
+  // Each element in the array is 8 bytes
+  var block = new Array(1.5 * 1024 * 1024);
   mem.push(block);
   log("Allocated " + (mem.length) + " MB");
 
@@ -59,6 +59,6 @@ function allocateMemory() {
 
 function allocateDisk() {
   log("Allocating disk.....");
-  fs.writeFile('file_' + disk, new Buffer(8*1024*1024));
+  fs.writeFile('file_' + disk, new Buffer(24*1024*1024));
   disk++;
 }
