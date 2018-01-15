@@ -3,6 +3,8 @@
 # We have created a delivery pipeline
 applications:
 # We have reserved a name/route for your app
-- name: NeilTest2
-  host: NeilTest2
-  domain: hcf.hsc.stacktest.io
+- name: NwmTestApp
+  memory: 16MVB
+  disk: 32MB
+  no-route: true
+  health-check-type: process
