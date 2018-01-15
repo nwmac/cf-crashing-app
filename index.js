@@ -15,13 +15,11 @@ function schedule() {
   setTimeout(doTask, 10000);
 }
 
-function showLog(msg) {
+function log(msg) {
   console.log('[' + index + '] ' + msg)
 }
 
 function doTask() {
-
-  showLog('DO TASK');
 
   // Task depends on which index we are
   switch(index) {
@@ -29,14 +27,14 @@ function doTask() {
       allocateMemory();
       break;
     default:
-      showLog('Looping....')
+      log('Looping....')
       break;
   }
   schedule();
 }
 
 function allocateMemory() {
-  showLog("Allocating memory.....");
+  log("Allocating memory.....");
   // 0.5MB
   var block = new Buffer(512*1024);
   mem.push(block);
