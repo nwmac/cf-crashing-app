@@ -1,7 +1,7 @@
 
 
 // Cloud Foundry App Instande Index
-var index = process.env.INSTANCE_INDEX;
+var index = parseInt(process.env.INSTANCE_INDEX);
 
 var mem = [];
 
@@ -9,7 +9,9 @@ var maxBlocks = 1024;
 
 console.log('APP INDEX: ' + index);
 
-while (true) {
+schedule();
+
+function schedule() {
   setTimeout(doTask, 10000);
 }
 
@@ -23,25 +25,25 @@ function doTask() {
 
   // Task depends on which index we are
   switch(index) {
-    case "1":
+    case 1:
       allocateMemory();
       break;
     default:
       showLog('Looping....')
       break;
   }
+  schedule();
+}
 
-  function allocateMemory() {
-    showLog("Allocating memory.....");
-    // 0.5MB
-    var block = new Buffer(512*1024);
-    mem.push(block);
-    log("Allocated " + (mem.length * 0.5) + " MB");
+function allocateMemory() {
+  showLog("Allocating memory.....");
+  // 0.5MB
+  var block = new Buffer(512*1024);
+  mem.push(block);
+  log("Allocated " + (mem.length * 0.5) + " MB");
 
-    if(mem.length >= maxBlocks) {
-      mem = [];
-      log('Freeing allocated memory');
-    }
+  if(mem.length >= maxBlocks) {
+    mem = [];
+    log('Freeing allocated memory');
   }
-
 }
